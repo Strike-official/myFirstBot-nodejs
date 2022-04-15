@@ -207,7 +207,7 @@ class Create {
     }
 
     // Get the final object to be exported
-    Build(){
+    Data(){
         return this.resp
     }
 

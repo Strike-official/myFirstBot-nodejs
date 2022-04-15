@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+// Import this to use the interface library
 const Create = require('./interfaces/strike');
 
 router.post('/',(req,res,next) => {
@@ -52,7 +53,7 @@ router.post('/',(req,res,next) => {
     // Answer Date interface
     questionDateObj.DateInput('Select Date');
 
-    res.status(200).json(strikeObj.Build());
+    res.status(200).json(strikeObj.Data());
 });
 
 module.exports = router;
