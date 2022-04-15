@@ -1,0 +1,19 @@
+{
+  "name": "my-first-app",
+  "version": "1.0.0",
+  "description": "This is the boiler plate server code for building a strike app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "strike",
+    "server"
+  ],
+  "author": "Shashank P. Sharma",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
