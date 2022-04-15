@@ -4,33 +4,33 @@ const router = express.Router();
 // Import this to use the interface library
 const Create = require('./interfaces/strike');
 
+const baseAPI = "http://5c96-2405-201-a407-908e-111-dbb5-3e1c-804e.ngrok.io/my-first-app/"
 router.post('/',(req,res,next) => {
 
-    const strikeObj = new Create('abc','next-api-link');
+    const strikeObj = new Create('getting_started', baseAPI+'respondBack');
 
     //Question Card interface
-    questionCardObj = strikeObj.Question('val1');
+    questionCardObj = strikeObj.Question('cardResp');
     questionCardObj.QuestionCard().SetHeaderToQuestion(1,strikeObj.HALF_WIDTH).
-        AddGraphicRowToQuestion(strikeObj.PICTURE_ROW,["pic_url"],[]).
-        AddTextRowToQuestion(strikeObj.H3,"Some text here","blue",true);
+        AddTextRowToQuestion(strikeObj.H3,"Click on the below bot","blue",true);
 
     // Answer Card Interface    
     answerCardObj = questionCardObj.Answer(true);
     answerCardObj.AnswerCardArray(strikeObj.VERTICAL_ORIENTATION);
-    answerCardObj.AnswerCard().SetHeaderToAnswer(1,strikeObj.HALF_WIDTH).
-        AddGraphicRowToAnswer(strikeObj.PICTURE_ROW,["pic_url"],[]).
-        AddTextRowToAnswer(strikeObj.H3,"Some text here","#008fcc",false);
+    answerCardObj.AnswerCard().SetHeaderToAnswer(2,strikeObj.HALF_WIDTH).
+        AddGraphicRowToAnswer(strikeObj.PICTURE_ROW,["https://img.freepik.com/free-vector/chat-bot-concept-illustration_114360-5522.jpg"],[]).
+        AddTextRowToAnswer(strikeObj.H3,"This is a Bot Demonstration","#008fcc",false);
 
     // Question Text interface   
-    questionTextObj = strikeObj.Question('val2');
+    questionTextObj = strikeObj.Question('name');
     questionTextObj.QuestionText().
-        SetTextToQuestion("Some question text for text input interface");
+        SetTextToQuestion("What is your name?");
 
     // answer Text-Input interface    
     questionTextObj.TextInput();
 
     // Question Text interface   
-    questionLocationObj = strikeObj.Question('val3');
+    questionLocationObj = strikeObj.Question('location');
     questionLocationObj.QuestionText().
         SetTextToQuestion("Some question text for Location-Input interface");
 
@@ -38,17 +38,17 @@ router.post('/',(req,res,next) => {
     questionLocationObj.LocationInput('Select location');
     
     // Question Text interface   
-    questionNumberObj = strikeObj.Question('val4');
+    questionNumberObj = strikeObj.Question('favNumber');
     questionNumberObj.QuestionText().
-        SetTextToQuestion("Some question text for Number-Input interface");
+        SetTextToQuestion("Whats your favourite number?");
     
     // Answer number interface
     questionNumberObj.NumberInput('Select Number');
     
     // Question Text interface   
-    questionDateObj = strikeObj.Question('val5');
+    questionDateObj = strikeObj.Question('dob');
     questionDateObj.QuestionText().
-        SetTextToQuestion("Some question text for Date-Input interface");        
+        SetTextToQuestion("What is your date of bith");        
 
     // Answer Date interface
     questionDateObj.DateInput('Select Date');
